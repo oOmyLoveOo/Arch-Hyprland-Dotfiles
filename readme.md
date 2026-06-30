@@ -1,8 +1,16 @@
 # 🌌 Wuke's Arch Linux Dotfiles
 
+![Hyprland](https://img.shields.io/badge/Hyprland-0.55-58E1FF?style=flat-square)
+![Stow](https://img.shields.io/badge/managed%20with-GNU%20Stow-orange?style=flat-square)
+![License](https://img.shields.io/badge/license-MIT-green?style=flat-square)
+
 Personal dotfiles for an Arch Linux + Hyprland workspace, built for efficiency, minimalism, and a Tokyo Night aesthetic — with an optional fully dynamic theming mode powered by [Wallust](https://codeberg.org/explosion-mental/wallust).
 
 ![Desktop Preview](.github/assets/desktop-preview.png)
+
+## 🔔 SwayNC Control Center
+
+![SwayNC Demo](.github/assets/swaync-demo.gif)
 
 ## ⚡ Core Components
 
@@ -112,3 +120,7 @@ A few terminal toys that show up in the preview above, themed to match Tokyo Nig
 - Rofi launcher/powermenu base styles from [Adi1090x's rofi-collection](https://github.com/adi1090x/rofi)
 - Color palette: [Tokyo Night](https://github.com/folke/tokyonight.nvim)
 - Inspirations: [ErfanRasti](https://github.com/ErfanRasti/dotfiles) & [mkhmtolzhas](https://github.com/mkhmtolzhas/mkhmtdots)
+
+## 📄 License
+
+[MIT](LICENSE) — use whatever you find useful.
