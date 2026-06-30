@@ -1,0 +1,105 @@
+{
+  "$schema": "/etc/xdg/swaync/configSchema.json",
+  "positionX": "right",
+  "positionY": "top",
+  "layer": "overlay",
+  "fit-to-screen": false,
+  "control-center-margin-top": 5,
+  "control-center-margin-bottom": 5,
+  "control-center-margin-right": 5,
+  "control-center-margin-left": 5,
+  "control-center-width": 380,
+  "control-center-height": 800,
+  "widgets": [
+    "dnd",
+    "buttons-grid",
+    "volume",
+    "backlight",
+    "mpris",
+    "title",
+    "notifications"
+  ],
+  "widget-config": {
+    "title": {
+      "text": "Notifications",
+      "clear-all-button": true,
+      "button-text": "󰎟 Clear"
+    },
+    "dnd": {
+      "text": "Do Not Disturb"
+    },
+    "mpris": {
+      "image-size": 60,
+      "image-radius": 6
+    },
+    "volume": {
+      "label": "󰕾",
+      "show-per-app": false
+    },
+    "backlight": {
+      "label": "󰃠 ",
+      "device": "amdgpu_bl2"
+    },
+    "buttons-grid": {
+      "buttons-per-row": 4,
+      "actions": [
+        {
+          "label": "󰤨",
+          "type": "toggle",
+          "active": false,
+          "command": "bash ~/.config/swaync/scripts/toggle_wifi.sh",
+          "update-command": "bash ~/.config/swaync/scripts/check_wifi.sh"
+        },
+        {
+          "label": "󰂯",
+          "type": "toggle",
+          "active": false,
+          "command": "bash ~/.config/swaync/scripts/toggle_bluetooth.sh",
+          "update-command": "bash ~/.config/swaync/scripts/check_bluetooth.sh"
+        },
+        {
+          "label": "󰀝",
+          "type": "toggle",
+          "active": false,
+          "command": "bash ~/.config/swaync/scripts/toggle_airplane.sh",
+          "update-command": "bash ~/.config/swaync/scripts/check_airplane.sh"
+        },
+        {
+          "label": "󰝟",
+          "type": "toggle",
+          "active": false,
+          "command": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+          "update-command": "bash ~/.config/swaync/scripts/check_mute.sh"
+        },
+        {
+          "label": "󰖔",
+          "type": "toggle",
+          "active": false,
+          "command": "bash ~/.config/swaync/scripts/toggle_night.sh",
+          "update-command": "bash ~/.config/swaync/scripts/check_night.sh"
+        },
+        {
+          "label": "󰾆",
+          "type": "toggle",
+          "active": false,
+          "command": "bash ~/.config/swaync/scripts/toggle_power_saver.sh",
+          "update-command": "bash ~/.config/swaync/scripts/check_power_saver.sh"
+        },
+        {
+          "label": "󰾅",
+          "type": "toggle",
+          "active": false,
+          "command": "bash ~/.config/swaync/scripts/toggle_power_balanced.sh",
+          "update-command": "bash ~/.config/swaync/scripts/check_power_balanced.sh"
+        },
+        {
+          "label": "󰓅",
+          "type": "toggle",
+          "active": false,
+          "command": "bash ~/.config/swaync/scripts/toggle_power_performance.sh",
+          "update-command": "bash ~/.config/swaync/scripts/check_power_performance.sh"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,9 @@
+/* Colores dinámicos para Waybar y SwayNC */
+@define-color bg-base {{background}};
+@define-color bg-alt {{color0}};
+@define-color text-main {{foreground}};
+@define-color text-alt {{color7}};
+@define-color accent {{color4}};
+@define-color urgent {{color1}};
+@define-color success {{color2}};
+@define-color warning {{color3}};

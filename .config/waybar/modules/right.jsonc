@@ -1,0 +1,121 @@
+{
+    "hyprland/language": {
+        "format": "󰌌  {}",
+        "format-en": "EN",
+        "format-es": "ES",
+        "on-click": "hyprctl switchxkblayout all next"
+    },
+    "cpu": {
+        "format": "󰻠  {usage}%",
+        "tooltip-format": "CPU: {usage}%\nCores: {num_cores}",
+        "tooltip": true
+    },
+    "temperature": {
+        "critical-threshold": 80,
+        "format": "{icon} {temperatureC}°C",
+        "format-critical": "󰈸 {temperatureC}°C",
+        "format-icons": ["", "", ""]
+    },
+    "memory": {
+        "format": "󰍛 {percentage}%",
+        "tooltip-format": "RAM: {used:0.1f}G / {total:0.1f}G\nSwap: {swapUsed:0.1f}G / {swapTotal:0.1f}G",
+        "interval": 5
+    },
+    "backlight": {
+        "format": "{icon} {percent}%",
+        "format-icons": ["󰃞", "󰃟", "󰃠"],
+        "on-scroll-up": "brightnessctl set 5%+",
+        "on-scroll-down": "brightnessctl set 5%-",
+        "tooltip": false
+    },
+    "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "format-bluetooth": "󰂯 {volume}%",
+        "format-muted": "󰸈 Muted",
+        "format-icons": {
+            "headphone": "󰋋",
+            "hands-free": "󰋎",
+            "headset": "󰋎",
+            "phone": "󰄜",
+            "portable": "󰄜",
+            "car": "󰄋",
+            "default": ["󰕿", "󰖀", "󰕾"]
+        },
+        "on-click": "pavucontrol",
+        "on-click-right": "pactl set-sink-mute @DEFAULT_SINK@ toggle"
+    },
+    "battery": {
+        "states": { "warning": 30, "critical": 15 },
+        "format": "{icon} {capacity}%",
+        "format-charging": "󰂄 {capacity}%",
+        "format-plugged": "󰚥 {capacity}%",
+        "format-icons": ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"]
+    },
+    "network": {
+        "format-wifi": "󰤨  {signalStrength}%",
+        "format-ethernet": "󰈀 LAN",
+        "format-disconnected": "󰤭",
+        "tooltip-format-wifi": "{essid}\nSignal: {signalStrength}%\n󰇚 {bandwidthDownBits}  󰕒 {bandwidthUpBits}",
+        "tooltip-format-ethernet": "{ifname} — {ipaddr}",
+        "on-click-right": "nm-connection-editor"
+    },
+    "tray": {
+        "spacing": 6,
+        "icon-size": 16
+    },
+    "custom/notification": {
+        "tooltip": false,
+        "format": "{icon}",
+        "format-icons": {
+            "notification": "<span foreground='#f7768e'>󰂚</span>",
+            "none": "󰂜",
+            "dnd-notification": "<span foreground='#f7768e'>󱏧</span>",
+            "dnd-none": "󱏪",
+            "inhibited-notification": "<span foreground='#f7768e'>󰂚</span>",
+            "inhibited-none": "󰂜",
+            "dnd-inhibited-notification": "<span foreground='#f7768e'>󱏧</span>",
+            "dnd-inhibited-none": "󱏪"
+        },
+        "return-type": "json",
+        "exec-if": "which swaync-client",
+        "exec": "swaync-client -swb",
+        "on-click": "sleep 0.3 && swaync-client -t -sw",
+        "on-click-right": "sleep 0.1 && swaync-client -d -sw",
+        "escape": true
+    },
+    "group/power-group": {
+        "orientation": "inherit",
+        "drawer": {
+            "transition-duration": 300,
+            "children-class": "powermenu-drawer",
+            "transition-left-to-right": false,
+            "click-to-reveal": true
+        },
+        "modules": [
+            "custom/power",
+            "custom/lock",
+            "custom/suspend",
+            "custom/quit"
+        ]
+    },
+    "custom/power": {
+        "format": "󰐥",
+        "tooltip-format": "Power menu",
+        "on-click": "~/.config/rofi/powermenu/type-5/powermenu.sh"
+    },
+    "custom/lock": {
+        "format": "󰌾",
+        "tooltip-format": "Lock screen",
+        "on-click": "hyprlock --config ~/.config/hypr/hyprlock/hyprlock.conf"
+    },
+    "custom/suspend": {
+        "format": "󰤄",
+        "tooltip-format": "Suspend",
+        "on-click": "systemctl suspend"
+    },
+    "custom/quit": {
+        "format": "󰍃",
+        "tooltip-format": "Log out",
+        "on-click": "hyprctl dispatch exit"
+    }
+}

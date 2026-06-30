@@ -1,0 +1,36 @@
+{
+    "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+    "logo": {},
+    "display": { "separator": " ➜  " },
+    "modules": [
+        "title",
+        { "type": "custom", "format": "┌────────────── Software ──────────────┐", "outputColor": "#bb9af7" },
+        { "type": "os",       "key": "󰣇 OS ", "keyColor": "#7aa2f7" },
+        { "type": "kernel",   "key": "󰌽 Ker", "keyColor": "#7dcfff" },
+        { "type": "shell",    "key": "󰆍 Sh ", "keyColor": "#9ece6a" },
+        { "type": "terminal", "key": "󰆍 Ter", "keyColor": "#e0af68" },
+        { "type": "wm",       "key": "󱂬 WM ", "keyColor": "#bb9af7" },
+        { "type": "uptime",   "key": "󱎫 Up ", "keyColor": "#f7768e" },
+
+        { "type": "custom", "format": "├────────────── Hardware ──────────────┤", "outputColor": "#7aa2f7" },
+        { "type": "host",    "key": "󰌢 Hst", "keyColor": "#7aa2f7" },
+        { "type": "cpu",     "key": "󰻠 CPU", "keyColor": "#7dcfff" },
+        { "type": "gpu",     "key": "󰢮 GPU", "keyColor": "#9ece6a" },
+        { "type": "display", "key": "󰍹 Dsp", "keyColor": "#e0af68" },
+        { "type": "memory",  "key": "󰍛 RAM", "keyColor": "#bb9af7" },
+        { "type": "swap",    "key": "󰓡 Swp", "keyColor": "#f7768e" },
+        { "type": "disk",    "key": "󰋊 Dsk", "keyColor": "#7aa2f7" },
+        { "type": "battery", "key": " Bat", "keyColor": "#7dcfff" },
+
+        { "type": "custom", "format": "├──────────────── Rice ────────────────┤", "outputColor": "#bb9af7" },
+        { "type": "font",         "key": "󰛖 Fnt", "keyColor": "#9ece6a" },
+        { "type": "terminalfont", "key": "󰛖 TFn", "keyColor": "#e0af68" },
+        { "type": "theme",        "key": "󰉼 Thm", "keyColor": "#bb9af7" },
+        { "type": "icons",        "key": "󰀻 Icn", "keyColor": "#f7768e" },
+        { "type": "cursor",       "key": "󰳽 Cur", "keyColor": "#7aa2f7" },
+
+        { "type": "custom", "format": "└──────────────────────────────────────┘", "outputColor": "#7aa2f7" },
+        "break",
+        { "type": "colors", "symbol": "circle" }
+    ]
+}

@@ -1,0 +1,5 @@
+\.git
+\.gitignore
+^/install\.sh$
+^/readme\.md$
+^/README\.md$

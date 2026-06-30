@@ -1,0 +1,58 @@
+# Tema din√°mico para Yazi generado por Wallust
+
+[manager]
+cwd = { fg = "{{color6}}" }
+hovered = { fg = "{{background}}", bg = "{{color4}}" }
+preview_hovered = { underline = true }
+find_keyword = { fg = "{{color3}}", italic = true }
+find_position = { fg = "{{color5}}", bg = "reset", italic = true }
+marker_selected = { fg = "{{color2}}", bg = "{{color2}}" }
+marker_copied = { fg = "{{color3}}", bg = "{{color3}}" }
+marker_cut = { fg = "{{color1}}", bg = "{{color1}}" }
+tab_active = { fg = "{{background}}", bg = "{{color4}}" }
+tab_inactive = { fg = "{{foreground}}", bg = "{{color8}}" }
+border_style = { fg = "{{color8}}" }
+
+[status]
+separator_open = "∂"
+separator_close = "¥"
+separator_style = { fg = "{{color8}}", bg = "{{color8}}" }
+mode_normal = { fg = "{{background}}", bg = "{{color4}}", bold = true }
+mode_select = { fg = "{{background}}", bg = "{{color2}}", bold = true }
+mode_unset = { fg = "{{background}}", bg = "{{color1}}", bold = true }
+progress_label = { fg = "{{foreground}}", bold = true }
+progress_normal = { fg = "{{color4}}", bg = "{{color8}}" }
+progress_error = { fg = "{{color1}}", bg = "{{color8}}" }
+permissions_t = { fg = "{{color4}}" }
+permissions_r = { fg = "{{color3}}" }
+permissions_w = { fg = "{{color1}}" }
+permissions_x = { fg = "{{color2}}" }
+permissions_s = { fg = "{{color8}}" }
+
+[select]
+border = { fg = "{{color4}}" }
+active = { fg = "{{color5}}" }
+inactive = { fg = "{{foreground}}" }
+
+[input]
+border = { fg = "{{color4}}" }
+title = { fg = "{{color4}}" }
+value = { fg = "{{foreground}}" }
+selected = { reversed = true }
+
+[completion]
+border = { fg = "{{color4}}" }
+active = { fg = "{{color5}}" }
+inactive = { fg = "{{foreground}}" }
+
+[tasks]
+border = { fg = "{{color4}}" }
+title = { fg = "{{color4}}" }
+hovered = { fg = "{{background}}", bg = "{{color4}}" }
+
+[help]
+on = { fg = "{{color3}}" }
+exec = { fg = "{{color6}}" }
+desc = { fg = "{{foreground}}" }
+hovered = { bg = "{{color8}}", bold = true }
+footer = { fg = "{{background}}", bg = "{{color4}}" }

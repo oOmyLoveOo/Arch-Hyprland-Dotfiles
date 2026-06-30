@@ -1,0 +1,34 @@
+{
+    "layer": "top",
+    "position": "top",
+    "margin-top": 2,
+    "margin-left": 2,
+    "margin-right": 2,
+    "margin-bottom": 0,
+    "spacing": 2,
+    "include": [
+        "~/.config/waybar/modules/left.jsonc",
+        "~/.config/waybar/modules/center.jsonc",
+        "~/.config/waybar/modules/right.jsonc"
+    ],
+    "modules-left": [
+        "hyprland/workspaces",
+        "hyprland/window"
+    ],
+    "modules-center": [
+        "clock"
+    ],
+    "modules-right": [
+        "hyprland/language",
+        "cpu",
+        "temperature",
+        "memory",
+        "backlight",
+        "pulseaudio",
+        "network",
+        "battery",
+        "tray",
+        "custom/notification",
+        "group/power-group"
+    ]
+}

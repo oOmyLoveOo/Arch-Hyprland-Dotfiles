@@ -1,0 +1,10 @@
+[manager]
+sort_by = "alphabetical"
+sort_dir_first = true
+show_hidden = true
+
+[preview]
+max_width = 1920
+max_height = 1080
+image_filter = "lanczos3"
+image_quality = 75

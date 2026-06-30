@@ -1,0 +1,46 @@
+# wallust.toml - Configuración Inteligente para v3
+
+# Motor de extracción (kmeans es el más preciso matemáticamente)
+backend = "kmeans"
+
+# Espacio de color y paleta base
+color_space = "lab"
+palette = "dark"
+
+# Filtro de contraste (más bajo = acepta colores más parecidos)
+threshold = 11
+
+# Si una imagen es casi monocromática, inventa los colores que faltan
+fallback_generator = "interpolate"
+
+# --- PLANTILLAS ---
+[templates.kitty]
+template = "kitty-colors.conf"
+target = "~/.config/kitty/colors.conf"
+
+[templates.hyprland]
+template = "hyprland-colors.conf"
+target = "~/.config/hypr/colors.conf"
+
+[templates.cava]
+template = "cava-colors.conf"
+target = "~/.config/cava/config"
+
+[templates.btop]
+template = "btop-colors.theme"
+target = "~/.config/btop/themes/wallust.theme"
+
+
+[templates.yazi]
+template = "yazi-colors.toml"
+target = "~/.config/yazi/theme.toml"
+
+
+# [templates.waybar-colors]
+# template = "colors-gtk.css"
+# target = "~/.config/waybar/colors.css"
+
+[templates.swaync-colors]
+template = "colors-gtk.css"
+target = "~/.config/swaync/colors.css"
+

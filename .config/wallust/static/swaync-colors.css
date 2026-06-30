@@ -1,0 +1,9 @@
+/* Fixed Tokyo Night palette (matches dynamic colors-gtk.css template) */
+@define-color bg-base #1a1b26;
+@define-color bg-alt #15161e;
+@define-color text-main #a9b1d6;
+@define-color text-alt #a9b1d6;
+@define-color accent #7aa2f7;
+@define-color urgent #f7768e;
+@define-color success #9ece6a;
+@define-color warning #e0af68;

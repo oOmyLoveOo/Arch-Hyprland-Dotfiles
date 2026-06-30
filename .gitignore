@@ -1,0 +1,20 @@
+# Generated / dynamic state — these are recreated automatically by scripts
+# and should never be committed (they change every time you switch wallpapers).
+.config/rofi/.current_wallpaper
+.config/kitty/colors.conf
+.config/hypr/colors.conf
+.config/swaync/colors.css
+.config/cava/config
+.config/btop/themes/wallust.theme
+.config/yazi/theme.toml
+
+# Wallust runtime cache
+.cache/wallust/
+
+# Local mode state
+.cache/wallpaper-mode
+
+# OS / editor junk
+.DS_Store
+*.swp
+config.zip

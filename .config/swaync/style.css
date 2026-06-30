@@ -1,0 +1,44 @@
+@import "colors.css";
+
+* {
+    font-family: "JetBrainsMono Nerd Font";
+    font-weight: bold;
+    font-size: 14px;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+.control-center {
+    background-color: alpha(@bg-base, 0.95);
+    border: 1px solid alpha(@accent, 0.2);
+    border-radius: 12px;
+    color: @text-main;
+}
+
+.widget-title { color: @text-main; font-size: 16px; padding: 10px 15px; }
+.widget-title > button { font-size: 13px; color: @bg-base; background: @urgent; border-radius: 6px; padding: 4px 10px; }
+.widget-title > button:hover { background: @warning; }
+
+.widget-dnd { background: @bg-alt; border-radius: 8px; margin: 10px 15px; padding: 5px 10px; }
+.widget-dnd > switch { background: alpha(@accent, 0.2); border-radius: 6px; }
+.widget-dnd > switch:checked { background: @accent; }
+.widget-dnd > switch slider { background: @text-main; border-radius: 4px; }
+
+.widget-buttons-grid { margin: 5px 15px; border-radius: 8px; background-color: transparent; }
+.widget-buttons-grid > flowbox > flowboxchild > button { background: @bg-alt; color: @text-main; border-radius: 8px; margin: 4px; padding: 12px 0; transition: all 0.2s ease; }
+.widget-buttons-grid > flowbox > flowboxchild > button:hover { background: alpha(@accent, 0.2); }
+.widget-buttons-grid > flowbox > flowboxchild > button:checked { background: @accent; color: @bg-base; }
+
+.widget-volume, .widget-backlight { background: @bg-alt; border-radius: 8px; margin: 5px 15px; padding: 5px 10px; }
+.widget-volume > label, .widget-backlight > label { color: @accent; font-size: 18px; padding-right: 10px; }
+scale trough { background: alpha(@accent, 0.2); border-radius: 4px; min-height: 8px; }
+scale highlight { background: @accent; border-radius: 4px; }
+scale slider { background: @text-main; min-width: 12px; min-height: 12px; border-radius: 50%; }
+
+.widget-mpris { background: @bg-alt; border-radius: 8px; margin: 10px 15px; padding: 10px; }
+
+.notification-row { outline: none; margin: 0px 15px 10px 15px; }
+.notification { background: @bg-alt; border-radius: 8px; padding: 10px; border: 1px solid alpha(@accent, 0.1); }
+.notification-content .summary { color: @accent; font-size: 14px; }
+.notification-content .body { color: @text-alt; font-size: 13px; }

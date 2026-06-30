@@ -1,0 +1,21 @@
+#!/bin/bash
+
+# Pick a random fastfetch logo: ascii art, image, or either.
+# -L makes find follow symlinks (the ascii/imgs dirs are stow symlinks),
+# and -type f then matches only the real files they resolve to.
+if [ "$1" == "ascii" ]; then
+    FILE=$(find -L ~/.config/fastfetch/ascii -type f 2>/dev/null | shuf -n 1)
+elif [ "$1" == "img" ]; then
+    FILE=$(find -L ~/.config/fastfetch/imgs -type f 2>/dev/null | shuf -n 1)
+else
+    # No argument (or unrecognized one): pick randomly from both
+    FILE=$(find -L ~/.config/fastfetch/imgs ~/.config/fastfetch/ascii -type f 2>/dev/null | shuf -n 1)
+fi
+
+# Run fastfetch with the matching logo renderer
+if [[ "$FILE" == *.txt ]]; then
+    # Let fastfetch auto-detect the .txt logo type (--logo-type file breaks on this fastfetch version)
+    fastfetch --logo "$FILE" --logo-color-1 "blue"
+else
+    fastfetch --logo-type kitty --logo "$FILE" --logo-width 35 --logo-height 16 --logo-padding-top 2 --logo-padding-left 2
+fi
