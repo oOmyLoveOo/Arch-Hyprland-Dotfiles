@@ -75,3 +75,16 @@ window#waybar { background: transparent; }
 /* Tooltips */
 tooltip { background-color: #1a1b26; border: 1px solid #565f89; border-radius: 8px; }
 tooltip label { color: #a9b1d6; }
+
+
+/* ── workspace-taskbar (app icons grouped inside each workspace) ── */
+#workspaces .taskbar-window {
+    padding: 0 2px;
+    margin: 0 1px;
+    border-radius: 4px;
+    transition: all 0.15s ease;
+}
+#workspaces .taskbar-window.active {
+    background-color: rgba(122, 162, 247, 0.25);
+}
+

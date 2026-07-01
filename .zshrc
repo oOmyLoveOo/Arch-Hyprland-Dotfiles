@@ -129,3 +129,4 @@ cat ~/.config/fastfetch/ascii/oOmyLoveOo.txt
 echo -e "\e[1;35m  System online. The shadows are yours to command.\e[0m\n"
 
 alias matrix='kitty --config ~/dotfiles/.config/kitty/matrix.conf -e cmatrix -b -C cyan'
+export LIBVIRT_DEFAULT_URI="qemu:///system"

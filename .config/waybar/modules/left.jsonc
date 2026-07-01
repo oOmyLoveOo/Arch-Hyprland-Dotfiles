@@ -6,7 +6,6 @@
         "on-scroll-up": "hyprctl dispatch workspace e-1",
         "on-scroll-down": "hyprctl dispatch workspace e+1",
         "smooth-scrolling-threshold": 3.0,
-        "format-window-separator": " ",
         "format-icons": {
             "1": "1",
             "2": "2",
@@ -18,14 +17,22 @@
             "8": "8",
             "9": "9",
             "10": "10",
-            "special": ""
+            "special": "🪄"
+        },
+        "workspace-taskbar": {
+            "enable": true,
+            "update-active-window": false,
+            "format": "{icon}",
+            "icon-size": 16,
+            "icon-theme": "Papirus-Dark",
+            "orientation": "horizontal"
         }
     },
     "hyprland/window": {
-        "format": "{class}",
+        "format": "{title}",
         "icon": true,
-        "icon-size": 18,
-        "max-length": 20,
+        "icon-size": 16,
+        "max-length": 25,
         "separate-outputs": false
     }
 }
