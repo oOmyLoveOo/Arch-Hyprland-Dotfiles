@@ -1,0 +1,9 @@
+ani-cli
+bibata-cursor-theme-bin
+envycontrol
+tokyonight-gtk-theme-git
+tty-clock
+vesktop-bin
+visual-studio-code-bin
+wallust
+yay-bin
