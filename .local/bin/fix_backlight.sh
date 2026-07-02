@@ -10,7 +10,12 @@
 sleep 1
 
 # 2. Read the current device name
-ACTUAL_BL=$(ls /sys/class/backlight/ | head -n 1)
+ACTUAL_BL=$(ls /sys/class/backlight/ 2>/dev/null | head -n 1)
+
+if [ -z "$ACTUAL_BL" ]; then
+    echo "!! No backlight device found under /sys/class/backlight/, skipping." >&2
+    exit 1
+fi
 
 # 3. Patch the device field in swaync's config.json, preserving the symlink
 sed -i --follow-symlinks "s/\"device\": \".*\"/\"device\": \"$ACTUAL_BL\"/" ~/.config/swaync/config.json

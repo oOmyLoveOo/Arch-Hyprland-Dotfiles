@@ -1,8 +1,9 @@
 #!/bin/bash
-# 1. Variables de Entorno
-export XDG_RUNTIME_DIR=/run/user/1000
-export WAYLAND_DISPLAY=wayland-1
-export DISPLAY=:0
+# 1. Variables de Entorno (solo como fallback: si ya vienen heredadas de la
+# sesión de Hyprland que lo invoca, se respetan tal cual)
+export XDG_RUNTIME_DIR="${XDG_RUNTIME_DIR:-/run/user/$(id -u)}"
+export WAYLAND_DISPLAY="${WAYLAND_DISPLAY:-wayland-1}"
+export DISPLAY="${DISPLAY:-:0}"
 
 # 2. Rutas
 HYPRSUNSET="/usr/bin/hyprsunset"

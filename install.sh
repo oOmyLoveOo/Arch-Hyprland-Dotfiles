@@ -12,10 +12,18 @@ echo "==> Dotfiles directory: $DOTFILES_DIR"
 if ! grep -q "^\[multilib\]" /etc/pacman.conf; then
     echo "==> Enabling multilib..."
     sudo sed -i '/^#\[multilib\]/,/^#Include/ s/^#//' /etc/pacman.conf
+    if ! grep -q "^\[multilib\]" /etc/pacman.conf; then
+        echo "!! Failed to enable multilib automatically — edit /etc/pacman.conf manually and re-run."
+        exit 1
+    fi
     sudo pacman -Sy
 fi
 
 # 2. Packages — read from arch_resource/pkglist_*.txt (kept fresh by backup.sh)
+if [ ! -s "$DOTFILES_DIR/arch_resource/pkglist_native.txt" ]; then
+    echo "!! $DOTFILES_DIR/arch_resource/pkglist_native.txt is missing or empty — nothing to install."
+    exit 1
+fi
 echo "==> Installing pacman packages..."
 sudo pacman -S --needed - < "$DOTFILES_DIR/arch_resource/pkglist_native.txt"
 
@@ -49,7 +57,11 @@ fi
 # 4. Stow
 echo "==> Stowing dotfiles into $HOME..."
 cd "$DOTFILES_DIR"
-stow --target="$HOME" --restow .
+if ! stow --target="$HOME" --restow .; then
+    echo "!! Stow reported conflicts (see above) — likely pre-existing non-symlink files in \$HOME."
+    echo "!! Resolve them manually (move the conflicting file aside, then re-run 'stow --restow .'),"
+    echo "!! continuing with the rest of the install so permissions/wallpaper steps still run."
+fi
 
 # 5. Executable permissions
 chmod +x "$HOME/.local/bin/"*.sh 2>/dev/null || true

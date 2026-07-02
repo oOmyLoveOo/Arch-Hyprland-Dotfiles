@@ -1,9 +1,8 @@
 #!/bin/bash
+# Delegates to night-mode.sh so the on/off behavior lives in one place
+# instead of being reimplemented (and able to drift) here.
 if [[ $SWAYNC_TOGGLE_STATE == true ]]; then
-    killall hyprsunset 2>/dev/null
-    nohup hyprsunset -t 4000 >/dev/null 2>&1 &
-    brightnessctl set 35%
+    "$HOME/.local/bin/night-mode.sh" --force-night
 else
-    killall hyprsunset 2>/dev/null
-    brightnessctl set 70%
+    "$HOME/.local/bin/night-mode.sh" --force-day
 fi

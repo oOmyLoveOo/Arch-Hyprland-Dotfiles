@@ -1,5 +1,6 @@
 ani-cli
 bibata-cursor-theme-bin
+claude-code
 envycontrol
 tokyonight-gtk-theme-git
 tty-clock
