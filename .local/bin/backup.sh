@@ -6,11 +6,11 @@
 #
 set -euo pipefail
 
-BACKUP_ROOT="/run/media/wuke/Backup_arch/arch-backup"
+BACKUP_ROOT="/run/media/$USER/Backup_arch/arch-backup"
 DEST="$BACKUP_ROOT/$(date +%Y-%m-%d)"
 
-if [ ! -d "/run/media/wuke/Backup_arch" ]; then
-    echo "!! External disk not mounted at /run/media/wuke/Backup_arch. Connect it first."
+if [ ! -d "/run/media/$USER/Backup_arch" ]; then
+    echo "!! External disk not mounted at /run/media/$USER/Backup_arch. Connect it first."
     exit 1
 fi
 
@@ -46,6 +46,11 @@ pacman -Qqen > "$DEST/pkglists/pkglist_native.txt"
 pacman -Qqem > "$DEST/pkglists/pkglist_aur.txt"
 flatpak list --app --columns=application > "$DEST/pkglists/pkglist_flatpak.txt" 2>/dev/null || true
 cp "$DEST/pkglists/"*.txt "$HOME/dotfiles/arch_resource/"
+
+echo "==> Backing up Claude Code config..."
+mkdir -p "$DEST/claude-code"
+cp "$HOME/.claude/settings.json" "$DEST/claude-code/settings.json" 2>/dev/null || echo "!! No settings.json found, skipping."
+cp "$HOME/.claude/CLAUDE.md" "$DEST/claude-code/CLAUDE.md" 2>/dev/null || echo "!! No CLAUDE.md found, skipping."
 
 echo
 echo "==> Backup complete: $DEST"
