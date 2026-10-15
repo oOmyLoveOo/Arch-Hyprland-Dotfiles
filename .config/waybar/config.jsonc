@@ -1,34 +1,65 @@
-{
-    "layer": "top",
-    "position": "top",
-    "margin-top": 2,
-    "margin-left": 2,
-    "margin-right": 2,
-    "margin-bottom": 0,
-    "spacing": 2,
-    "include": [
-        "~/.config/waybar/modules/left.jsonc",
-        "~/.config/waybar/modules/center.jsonc",
-        "~/.config/waybar/modules/right.jsonc"
-    ],
-    "modules-left": [
-        "hyprland/workspaces",
-        "hyprland/window"
-    ],
-    "modules-center": [
-        "clock"
-    ],
-    "modules-right": [
-        "hyprland/language",
-        "cpu",
-        "temperature",
-        "memory",
-        "backlight",
-        "pulseaudio",
-        "network",
-        "battery",
-        "tray",
-        "custom/notification",
-        "group/power-group"
-    ]
-}
+[
+    // Main bar — laptop panel
+    {
+        "layer": "top",
+        "position": "top",
+        "output": ["eDP-1"],
+        "margin-top": 2,
+        "margin-left": 2,
+        "margin-right": 2,
+        "margin-bottom": 0,
+        "spacing": 2,
+        "include": [
+            "~/.config/waybar/modules/left.jsonc",
+            "~/.config/waybar/modules/center.jsonc",
+            "~/.config/waybar/modules/right.jsonc"
+        ],
+        "modules-left": [
+            "hyprland/workspaces",
+            "hyprland/window"
+        ],
+        "modules-center": [
+            "clock"
+        ],
+        "modules-right": [
+            "hyprland/language",
+            "cpu",
+            "temperature",
+            "memory",
+            "backlight",
+            "pulseaudio",
+            "network",
+            "battery",
+            "tray",
+            "custom/notification",
+            "group/power-group"
+        ]
+    },
+    // Slim bar — Arzopa Z1RC: few modules so it fits the vertical
+    // orientation (1000px logical) and still works in horizontal
+    {
+        "layer": "top",
+        "position": "top",
+        "output": ["DP-1"],
+        "margin-top": 2,
+        "margin-left": 2,
+        "margin-right": 2,
+        "margin-bottom": 0,
+        "spacing": 2,
+        "include": [
+            "~/.config/waybar/modules/left.jsonc",
+            "~/.config/waybar/modules/center.jsonc",
+            "~/.config/waybar/modules/right.jsonc"
+        ],
+        "modules-left": [
+            "hyprland/workspaces"
+        ],
+        "modules-center": [
+            "clock"
+        ],
+        "modules-right": [
+            "pulseaudio",
+            "custom/notification"
+        ]
+    }
+]

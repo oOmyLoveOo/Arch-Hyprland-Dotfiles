@@ -38,7 +38,7 @@
     },
     "backlight": {
       "label": "󰃠 ",
-      "device": "amdgpu_bl2"
+      "device": "amdgpu_bl1"
     },
     "buttons-grid": {
       "buttons-per-row": 4,

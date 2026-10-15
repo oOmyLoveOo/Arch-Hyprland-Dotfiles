@@ -1,0 +1,72 @@
+// Used by monitor_rotate.sh while the Arzopa is horizontal — same laptop
+// bar, but the Arzopa gets a fuller module set (fits its 1600px width)
+[
+    // Main bar — laptop panel
+    {
+        "layer": "top",
+        "position": "top",
+        "output": ["eDP-1"],
+        "margin-top": 2,
+        "margin-left": 2,
+        "margin-right": 2,
+        "margin-bottom": 0,
+        "spacing": 2,
+        "include": [
+            "~/.config/waybar/modules/left.jsonc",
+            "~/.config/waybar/modules/center.jsonc",
+            "~/.config/waybar/modules/right.jsonc"
+        ],
+        "modules-left": [
+            "hyprland/workspaces",
+            "hyprland/window"
+        ],
+        "modules-center": [
+            "clock"
+        ],
+        "modules-right": [
+            "hyprland/language",
+            "cpu",
+            "temperature",
+            "memory",
+            "backlight",
+            "pulseaudio",
+            "network",
+            "battery",
+            "tray",
+            "custom/notification",
+            "group/power-group"
+        ]
+    },
+    // Arzopa Z1RC horizontal — fuller bar (tray/battery/backlight stay on
+    // the laptop bar: they are laptop hardware and the tray can't repeat)
+    {
+        "layer": "top",
+        "position": "top",
+        "output": ["DP-1"],
+        "margin-top": 2,
+        "margin-left": 2,
+        "margin-right": 2,
+        "margin-bottom": 0,
+        "spacing": 2,
+        "include": [
+            "~/.config/waybar/modules/left.jsonc",
+            "~/.config/waybar/modules/center.jsonc",
+            "~/.config/waybar/modules/right.jsonc"
+        ],
+        "modules-left": [
+            "hyprland/workspaces",
+            "hyprland/window"
+        ],
+        "modules-center": [
+            "clock"
+        ],
+        "modules-right": [
+            "cpu",
+            "temperature",
+            "memory",
+            "pulseaudio",
+            "network",
+            "custom/notification"
+        ]
+    }
+]
