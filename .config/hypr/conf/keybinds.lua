@@ -92,15 +92,3 @@ local media = {
 for _, m in ipairs(media) do
     bind(m[1], hl.dsp.exec_cmd(m[2]), m[3], { locked = true, repeating = m[4] })
 end
-
-section = "System"
--- Fn + F11 on the HP Victus. The state lives in Lua, so a config reload
--- (which resets device settings) also starts it enabled again.
-local TOUCHPAD = "syna32b9:00-06cb:ce7d-touchpad"
-local touchpad_enabled = true
-bind("XF86TouchpadToggle", function()
-    touchpad_enabled = not touchpad_enabled
-    hl.device({ name = TOUCHPAD, enabled = touchpad_enabled })
-    hl.exec_cmd(osd .. "--custom-icon input-touchpad-symbolic --custom-message 'Touchpad "
-        .. (touchpad_enabled and "on" or "off") .. "'")
-end, "Toggle touchpad (Fn + F11)")
