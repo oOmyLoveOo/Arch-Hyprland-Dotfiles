@@ -14,6 +14,7 @@ ROFI_DIR="$HOME/.config/rofi/launchers/type-6"
 apply_static_colors() {
     cp "$STATIC_DIR/kitty-colors.conf"    ~/.config/kitty/colors.conf
     cp "$STATIC_DIR/hyprland-colors.conf" ~/.config/hypr/colors.conf
+    cp "$STATIC_DIR/hyprland-colors.lua"  ~/.config/hypr/conf/colors.lua
     cp "$STATIC_DIR/swaync-colors.css"    ~/.config/swaync/colors.css
     cp "$STATIC_DIR/cava-colors.conf"     ~/.config/cava/config
     cp "$STATIC_DIR/btop-colors.theme"    ~/.config/btop/themes/wallust.theme
