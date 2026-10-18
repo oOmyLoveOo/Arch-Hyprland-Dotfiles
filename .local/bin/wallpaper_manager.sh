@@ -60,6 +60,38 @@ theme_for() {
     fi
 }
 
+# awww transition flags for monitor $1: a random effect; the circular ones
+# (grow/outer) start from the mouse pointer when it is on that monitor
+transition_for() {
+    local pos
+    pos=$(python3 - "$1" "$(hyprctl cursorpos)" "$(hyprctl monitors -j)" <<'EOF'
+import json, sys
+name, cursor, monitors = sys.argv[1], sys.argv[2], json.loads(sys.argv[3])
+cx, cy = (float(v) for v in cursor.split(","))
+for m in monitors:
+    if m["name"] != name:
+        continue
+    # Logical size; rotated monitors swap width and height
+    w, h = m["width"] / m["scale"], m["height"] / m["scale"]
+    if m["transform"] % 2:
+        w, h = h, w
+    px, py = (cx - m["x"]) / w, (cy - m["y"]) / h
+    if 0 <= px <= 1 and 0 <= py <= 1:
+        # awww measures y from the bottom, as a percentage when given floats
+        print(f"{px:.3f},{1 - py:.3f}")
+        break
+else:
+    print("center")
+EOF
+)
+    case $(shuf -n 1 -e grow grow outer wave wipe) in
+        grow)  echo "--transition-type grow --transition-pos $pos --transition-duration 1.5" ;;
+        outer) echo "--transition-type outer --transition-pos $pos --transition-duration 1.5" ;;
+        wave)  echo "--transition-type wave --transition-angle $(shuf -n 1 -e 30 45 60 120 135) --transition-duration 1.5" ;;
+        wipe)  echo "--transition-type wipe --transition-angle $(shuf -n 1 -e 0 30 90 150 180) --transition-duration 1.5" ;;
+    esac
+}
+
 # Remember each monitor's current wallpaper (used as rofi backgrounds)
 track_wall() {
     if [ "$1" == "$MAIN_MON" ]; then
@@ -75,7 +107,7 @@ track_wall() {
 if [ "$1" == "random" ]; then
     MON=$(focused_mon)
     SELECTED_WALL=$(find "$(wall_dir_for "$MON")" -type f | shuf -n 1)
-    awww img "$SELECTED_WALL" -o "$MON" --transition-type grow --transition-step 90
+    awww img "$SELECTED_WALL" -o "$MON" $(transition_for "$MON")
     track_wall "$MON" "$SELECTED_WALL"
     # Colors always follow the laptop wallpaper: on any other monitor the
     # mode only swaps that screen's image
@@ -95,7 +127,7 @@ elif [ "$1" == "select-dynamic" ]; then
 
     if [ -n "$SELECTED_NAME" ]; then
         SELECTED_WALL="$SEL_DIR/$SELECTED_NAME"
-        awww img "$SELECTED_WALL" -o "$MON" --transition-type grow
+        awww img "$SELECTED_WALL" -o "$MON" $(transition_for "$MON")
         track_wall "$MON" "$SELECTED_WALL"
         # Colors always follow the laptop wallpaper
         if [ "$MON" == "$MAIN_MON" ]; then
@@ -116,7 +148,7 @@ elif [ "$1" == "select-static" ]; then
 
     if [ -n "$SELECTED_NAME" ]; then
         SELECTED_WALL="$SEL_DIR/$SELECTED_NAME"
-        awww img "$SELECTED_WALL" -o "$MON" --transition-type grow
+        awww img "$SELECTED_WALL" -o "$MON" $(transition_for "$MON")
         track_wall "$MON" "$SELECTED_WALL"
         # Colors always follow the laptop wallpaper
         if [ "$MON" == "$MAIN_MON" ]; then
@@ -139,7 +171,7 @@ elif [ "$1" == "select-second" ]; then
     SELECTED_NAME=$(ls "$SEL_DIR" | while read A; do echo -en "$A\0icon\x1f$SEL_DIR/$A\n"; done | rofi -dmenu -i -p "Second Screen" -theme "$(theme_for "$SECOND_MON")")
 
     if [ -n "$SELECTED_NAME" ]; then
-        awww img "$SEL_DIR/$SELECTED_NAME" -o "$SECOND_MON" --transition-type grow
+        awww img "$SEL_DIR/$SELECTED_NAME" -o "$SECOND_MON" $(transition_for "$SECOND_MON")
         track_wall "$SECOND_MON" "$SEL_DIR/$SELECTED_NAME"
     fi
 
@@ -150,7 +182,7 @@ elif [ "$1" == "select-second" ]; then
 elif [ "$1" == "monitor" ] && [ -n "$2" ]; then
     WALL=$(find "$(wall_dir_for "$2")" -type f | shuf -n 1)
     if [ -n "$WALL" ]; then
-        awww img "$WALL" -o "$2" --transition-type grow
+        awww img "$WALL" -o "$2" $(transition_for "$2")
         track_wall "$2" "$WALL"
     fi
 
@@ -172,7 +204,7 @@ elif [ "$1" == "reapply" ] || [ "$1" == "startup" ]; then
     for MON in $(hyprctl monitors | awk '$1 == "Monitor" { print $2 }'); do
         WALL=$(find "$(wall_dir_for "$MON")" -type f | shuf -n 1)
         [ -z "$WALL" ] && continue
-        awww img "$WALL" -o "$MON" --transition-type grow --transition-step 90
+        awww img "$WALL" -o "$MON" $(transition_for "$MON")
         track_wall "$MON" "$WALL"
         [ "$MON" == "$MAIN_MON" ] && SELECTED_WALL="$WALL"
     done

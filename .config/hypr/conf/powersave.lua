@@ -19,6 +19,7 @@ local function apply(ac)
         decoration = {
             blur   = { enabled = ac },
             shadow = { enabled = ac },
+            glow   = { enabled = ac },
         },
     })
     -- The looping border gradient forces a redraw every frame even when idle
@@ -40,7 +41,7 @@ local function check()
     last = now
     apply(now)
     hl.notification.create({
-        text    = now and "AC power: effects back on" or "On battery: blur, shadows and border animation off",
+        text    = now and "AC power: effects back on" or "On battery: blur, shadows, glow and border animation off",
         timeout = 4000,
     })
 end
