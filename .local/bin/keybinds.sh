@@ -21,7 +21,7 @@ KEYS = {
     "XF86AudioRaiseVolume": "Volume Up", "XF86AudioLowerVolume": "Volume Down",
     "XF86AudioMute": "Mute", "XF86AudioMicMute": "Mic Mute",
     "XF86MonBrightnessUp": "Brightness Up", "XF86MonBrightnessDown": "Brightness Down",
-    "XF86AudioNext": "Next", "XF86AudioPrev": "Prev",
+    "XF86AudioNext": "Next", "XF86AudioPrev": "Prev", "XF86TouchpadToggle": "Touchpad Toggle",
     "XF86AudioPlay": "Play", "XF86AudioPause": "Pause",
 }
 

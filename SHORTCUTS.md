@@ -92,3 +92,9 @@ Press `Super + H` for a searchable version of this list.
 | `Play` | Play/pause |
 | `Prev` | Previous track |
 
+## System
+
+| Shortcut | Action |
+| --- | --- |
+| `Touchpad Toggle` | Toggle touchpad (Fn + F11) |
+
