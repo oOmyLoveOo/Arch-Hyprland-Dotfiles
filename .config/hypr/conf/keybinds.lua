@@ -1,5 +1,4 @@
 -- Keybindings
--- Migrated from keybinds.conf
 
 local mainMod     = "SUPER"
 local terminal    = "kitty"
@@ -90,5 +89,5 @@ exec("V", "cliphist list | rofi -dmenu -theme " .. rofiTheme .. " | cliphist dec
 -- Night mode toggle
 exec("N", "~/.local/bin/night-mode.sh")
 
--- Emoji picker (long string keeps the quoting byte-identical to keybinds.conf)
+-- Emoji picker (long string keeps the backslash-escaped quotes rofi expects)
 exec("period", [[rofimoji --action type --hidden-descriptions --selector-args "-theme ]] .. rofiTheme .. [[ -theme-str 'listview {columns: 6; lines: 6;} element {orientation: vertical; padding: 20px;} element-text {font: \"Noto Color Emoji 15\"; horizontal-align: 0.5; vertical-align: 0.5;}'"]])

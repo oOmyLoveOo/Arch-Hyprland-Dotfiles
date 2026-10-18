@@ -1,6 +1,5 @@
 -- Programs launched once at Hyprland start
--- Migrated from autostart.conf (exec-once). exec_cmd runs through sh -c,
--- so &, && and ~ work as before.
+-- exec_cmd runs through sh -c, so &, && and ~ work as in a shell.
 
 -- Night/day mode based on current hour (computed in Lua, no bash -c needed)
 local hour = tonumber(os.date("%H"))

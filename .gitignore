@@ -2,7 +2,6 @@
 # and should never be committed (they change every time you switch wallpapers).
 .config/rofi/.current_wallpaper
 .config/kitty/colors.conf
-.config/hypr/colors.conf
 .config/hypr/conf/colors.lua
 .config/swaync/colors.css
 .config/cava/config

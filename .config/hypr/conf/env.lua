@@ -1,5 +1,4 @@
 -- Environment variables and cursor
--- Migrated from env.conf
 
 hl.config({
     cursor = {
@@ -16,7 +15,7 @@ local env = {
     HYPRCURSOR_THEME     = cursor_theme,
     HYPRCURSOR_SIZE      = cursor_size,
 
-    -- env.conf set qt5ct then qt6ct; the last one won, so only qt6ct is kept
+    -- The old env.conf set qt5ct then qt6ct; the last one won, so only qt6ct is kept
     QT_QPA_PLATFORMTHEME = "qt6ct",
     QT_QPA_PLATFORM      = "wayland;xcb",
 

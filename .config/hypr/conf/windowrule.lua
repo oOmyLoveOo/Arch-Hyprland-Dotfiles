@@ -1,5 +1,4 @@
 -- Window rules
--- Migrated from windowrule.conf
 
 -- Ignore maximize requests from all apps
 hl.window_rule({

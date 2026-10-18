@@ -104,7 +104,7 @@ Stow only touches files that exist inside this repo — your other `~/.config` f
 | `Super + R`                 | Random dynamic wallpaper            |
 | `Super + Shift + S`         | Screenshot (region)                 |
 
-See [`.config/hypr/conf/keybinds.conf`](.config/hypr/conf/keybinds.conf) for the full list.
+See [`.config/hypr/conf/keybinds.lua`](.config/hypr/conf/keybinds.lua) for the full list.
 
 ## ✨ Extras
 

@@ -1,5 +1,4 @@
 -- Keyboard, mouse, touchpad and gestures
--- Migrated from input.conf
 
 hl.config({
     input = {

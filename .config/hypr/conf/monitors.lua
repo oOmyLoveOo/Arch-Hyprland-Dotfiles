@@ -1,5 +1,4 @@
 -- Monitor layout
--- Migrated from monitors.conf
 
 -- Laptop panel
 hl.monitor({

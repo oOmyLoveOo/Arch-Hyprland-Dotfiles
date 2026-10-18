@@ -1,5 +1,4 @@
 -- Rounding, opacity, shadow and blur
--- Migrated from decoration.conf
 
 hl.config({
     decoration = {

@@ -19,10 +19,6 @@ template = "kitty-colors.conf"
 target = "~/.config/kitty/colors.conf"
 
 [templates.hyprland]
-template = "hyprland-colors.conf"
-target = "~/.config/hypr/colors.conf"
-
-[templates.hyprland-lua]
 template = "hyprland-colors.lua"
 target = "~/.config/hypr/conf/colors.lua"
 

@@ -1,5 +1,4 @@
 -- Bezier curves and animations
--- Migrated from animations.conf
 
 hl.config({
     animations = {
