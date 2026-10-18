@@ -24,7 +24,7 @@ case "$chosen" in
         hyprlock --config ~/.config/hypr/hyprlock/hyprlock.conf & sleep 1 && systemctl suspend
         ;;
     *Logout*)
-        hyprctl dispatch exit
+        hyprctl dispatch 'hl.dsp.exit()'
         ;;
     *Reboot*)
         systemctl reboot

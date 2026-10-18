@@ -3,10 +3,10 @@
 # Toggle the Arzopa Z1RC between vertical (transform 1) and horizontal (0),
 # then give it a random wallpaper matching the new orientation (colors are
 # untouched — they keep following the laptop). Runtime-only change:
-# monitors.conf restores the vertical default on the next Hyprland start.
+# conf/monitors.lua restores the vertical default on the next Hyprland start.
 
 MON="DP-1"
-MON_RULE="desc:GWD ARZOPA 0x28320206, preferred, auto-right, 1.6, transform"
+MON_DESC="desc:GWD ARZOPA 0x28320206"
 WALL_DIR="$HOME/Pictures/wallpapers"
 VERT_DIR="$HOME/Pictures/wallpapers-vertical"
 
@@ -27,7 +27,7 @@ else
     label="vertical"
 fi
 
-hyprctl keyword monitor "$MON_RULE, $new"
+hyprctl eval "hl.monitor({ output = '$MON_DESC', mode = 'preferred', position = 'auto-right', scale = 1.6, transform = $new })"
 sleep 0.5
 
 # Pick the wallpaper folder matching the new orientation
@@ -50,6 +50,6 @@ else
 fi
 killall waybar 2>/dev/null
 sleep 0.3
-hyprctl dispatch exec "waybar -c $WAYBAR_CONF"
+hyprctl dispatch "hl.dsp.exec_cmd('waybar -c $WAYBAR_CONF')"
 
 notify-send "Monitor" "Arzopa rotated to $label" -i video-display

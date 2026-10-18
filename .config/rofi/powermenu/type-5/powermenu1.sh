@@ -58,7 +58,7 @@ run_cmd() {
         elif [[ $1 == '--suspend' ]]; then
             hyprlock --config ~/.config/hypr/hyprlock/hyprlock.conf & sleep 1 && systemctl suspend
         elif [[ $1 == '--logout' ]]; then
-            hyprctl dispatch exit
+            hyprctl dispatch 'hl.dsp.exit()'
         fi
     else
         exit 0
