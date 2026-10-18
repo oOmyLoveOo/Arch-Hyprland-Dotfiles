@@ -143,12 +143,18 @@ elif [ "$1" == "select-second" ]; then
     fi
 
 # ==========================================
-# MODE 5: REAPPLY (used on startup, respects last saved color mode; gives
-#                  every connected monitor a random wallpaper from its
-#                  orientation-matching folder, colors follow the laptop's)
+# MODE 5: REAPPLY / STARTUP (every connected monitor gets a random wallpaper
+#                  from its orientation-matching folder, colors follow the
+#                  laptop's). reapply respects the last saved color mode;
+#                  startup always goes dynamic (used by Hyprland autostart)
 # ==========================================
-elif [ "$1" == "reapply" ]; then
-    SAVED_MODE=$(cat "$MODE_STATE" 2>/dev/null || echo "static")
+elif [ "$1" == "reapply" ] || [ "$1" == "startup" ]; then
+    if [ "$1" == "startup" ]; then
+        SAVED_MODE="dynamic"
+        echo "dynamic" > "$MODE_STATE"
+    else
+        SAVED_MODE=$(cat "$MODE_STATE" 2>/dev/null || echo "static")
+    fi
 
     SELECTED_WALL=""
     for MON in $(hyprctl monitors | awk '$1 == "Monitor" { print $2 }'); do

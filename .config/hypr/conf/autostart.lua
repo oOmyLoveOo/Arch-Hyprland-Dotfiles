@@ -35,16 +35,14 @@ local startup = {
     -- otherwise GUI apps that self-elevate (e.g. rpi-imager) fail to open
     "xhost +SI:localuser:root",
 
-    -- Wallpaper daemon + random wallpaper on start
+    -- Wallpaper daemon + random wallpaper on every monitor, Wallust colors
+    -- from the laptop's (one ordered pass, no separate wallust run)
     "awww-daemon",
-    "sleep 1 && ~/.local/bin/wallpaper_manager.sh random",
+    "sleep 1 && ~/.local/bin/wallpaper_manager.sh startup",
 
     -- DBus env (required for portals, e.g. screen share / VS Code)
     "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP",
     "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP",
-
-    -- Generate color scheme from current wallpaper
-    'sleep 2 && wallust run "$HOME/.config/rofi/.current_wallpaper"',
 
     -- Fix backlight permissions on boot
     "~/.local/bin/fix_backlight.sh",
