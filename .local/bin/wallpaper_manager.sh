@@ -14,6 +14,7 @@ ROFI_DIR="$HOME/.config/rofi/launchers/type-6"
 apply_static_colors() {
     cp "$STATIC_DIR/kitty-colors.conf"    ~/.config/kitty/colors.conf
     cp "$STATIC_DIR/hyprland-colors.lua"  ~/.config/hypr/conf/colors.lua
+    cp "$STATIC_DIR/hyprlock-colors.conf" ~/.config/hypr/hyprlock/colors.conf
     cp "$STATIC_DIR/swaync-colors.css"    ~/.config/swaync/colors.css
     cp "$STATIC_DIR/cava-colors.conf"     ~/.config/cava/config
     cp "$STATIC_DIR/btop-colors.theme"    ~/.config/btop/themes/wallust.theme
@@ -140,6 +141,17 @@ elif [ "$1" == "select-second" ]; then
     if [ -n "$SELECTED_NAME" ]; then
         awww img "$SEL_DIR/$SELECTED_NAME" -o "$SECOND_MON" --transition-type grow
         track_wall "$SECOND_MON" "$SEL_DIR/$SELECTED_NAME"
+    fi
+
+# ==========================================
+# MODE 4b: MONITOR (random wallpaper for monitor $2 from its orientation
+#                   folder; colors untouched — used when a screen is plugged in)
+# ==========================================
+elif [ "$1" == "monitor" ] && [ -n "$2" ]; then
+    WALL=$(find "$(wall_dir_for "$2")" -type f | shuf -n 1)
+    if [ -n "$WALL" ]; then
+        awww img "$WALL" -o "$2" --transition-type grow
+        track_wall "$2" "$WALL"
     fi
 
 # ==========================================

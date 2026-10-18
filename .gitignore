@@ -3,6 +3,7 @@
 .config/rofi/.current_wallpaper
 .config/kitty/colors.conf
 .config/hypr/conf/colors.lua
+.config/hypr/hyprlock/colors.conf
 .config/swaync/colors.css
 .config/cava/config
 .config/btop/themes/wallust.theme

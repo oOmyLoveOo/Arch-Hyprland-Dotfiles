@@ -22,6 +22,10 @@ target = "~/.config/kitty/colors.conf"
 template = "hyprland-colors.lua"
 target = "~/.config/hypr/conf/colors.lua"
 
+[templates.hyprlock]
+template = "hyprlock-colors.conf"
+target = "~/.config/hypr/hyprlock/colors.conf"
+
 [templates.cava]
 template = "cava-colors.conf"
 target = "~/.config/cava/config"
