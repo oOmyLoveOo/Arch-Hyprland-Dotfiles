@@ -2,13 +2,13 @@
 
 Generated from the live Hyprland binds by `~/.local/bin/keybinds.sh md`.
 Edit `.config/hypr/conf/keybinds.lua`, then re-run the script.
-Press `Super + /` for a searchable version of this list.
+Press `Super + H` for a searchable version of this list.
 
 ## Apps
 
 | Shortcut | Action |
 | --- | --- |
-| `Super + /` | Shortcut cheat sheet (this list) |
+| `Super + H` | Shortcut cheat sheet (this list) |
 | `Super + T` | Terminal (kitty) |
 | `Super + E` | File manager (thunar) |
 | `Super + A` | App launcher |

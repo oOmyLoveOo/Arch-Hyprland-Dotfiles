@@ -2,7 +2,7 @@
 # Keybind reference built from the live Hyprland binds.
 # Descriptions come from conf/keybinds.lua ("Section | what it does").
 #
-#   keybinds.sh menu         searchable rofi cheat sheet (Super + /)
+#   keybinds.sh menu         searchable rofi cheat sheet (Super + H)
 #   keybinds.sh md [output]  write SHORTCUTS.md (default: ~/dotfiles/SHORTCUTS.md)
 
 ROFI_THEME="$HOME/.config/rofi/launchers/type-6/style-1.rasi"
@@ -37,7 +37,7 @@ for b in json.load(sys.stdin):
 
 case "$1" in
     menu)
-        # Toggle: a second Super + / closes the open menu
+        # Toggle: a second Super + H closes the open menu
         pkill -x rofi && exit 0
         list_binds | awk -F'\t' '{ printf "%-11s  %-28s  %s\n", $1, $2, $3 }' \
             | rofi -dmenu -i -p "Shortcuts" -no-custom -theme "$ROFI_THEME" \
@@ -55,7 +55,7 @@ for line in sys.stdin:
 print("# Keyboard shortcuts\n")
 print("Generated from the live Hyprland binds by `~/.local/bin/keybinds.sh md`.")
 print("Edit `.config/hypr/conf/keybinds.lua`, then re-run the script.")
-print("Press `Super + /` for a searchable version of this list.\n")
+print("Press `Super + H` for a searchable version of this list.\n")
 for section, rows in sections.items():
     print(f"## {section}\n")
     print("| Shortcut | Action |")

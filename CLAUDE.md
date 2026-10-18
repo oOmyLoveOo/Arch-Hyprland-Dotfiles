@@ -13,7 +13,7 @@ Personal Arch Linux + Hyprland dotfiles, managed with **GNU Stow**. The entire r
 - `./install.sh` — full setup on a fresh machine: enables multilib, installs packages from `arch_resource/pkglist_{native,aur,flatpak}.txt`, sets up Oh My Zsh/Powerlevel10k, stows, fixes script permissions, applies default colors.
 - `stow --target="$HOME" --restow .` (from repo root) — (re)link configs only.
 - `~/.local/bin/wallpaper_manager.sh {random|select-dynamic|select-static|select-second|reapply|startup}` — apply wallpaper + color scheme. `startup` (Hyprland autostart) gives every monitor a random wallpaper from its orientation folder and forces dynamic colors; `reapply` does the same but keeps the saved color mode.
-- `~/.local/bin/keybinds.sh {menu|md}` — `menu` is the Super + / rofi cheat sheet, `md` regenerates `SHORTCUTS.md`; both read the live binds. Every bind in `conf/keybinds.lua` must keep a `"Section | description"`; re-run after changing binds.
+- `~/.local/bin/keybinds.sh {menu|md}` — `menu` is the Super + H rofi cheat sheet, `md` regenerates `SHORTCUTS.md`; both read the live binds. Every bind in `conf/keybinds.lua` must keep a `"Section | description"`; re-run after changing binds.
 - `~/.local/bin/backup.sh` — external-disk backup; also regenerates the `arch_resource/pkglist_*.txt` files (they are output of this script, not hand-maintained).
 - Reload after config edits: `hyprctl reload` (Hyprland), `killall -SIGUSR2 waybar` (Waybar), `swaync-client -rs` (SwayNC), `killall -SIGUSR1 kitty` (Kitty colors).
 

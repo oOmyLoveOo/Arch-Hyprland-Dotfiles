@@ -1,6 +1,6 @@
 -- Keybindings
 -- Every bind carries a "Section | what it does" description, read back with
--- `hyprctl binds -j` by ~/.local/bin/keybinds.sh (Super + / menu, SHORTCUTS.md).
+-- `hyprctl binds -j` by ~/.local/bin/keybinds.sh (Super + H menu, SHORTCUTS.md).
 
 local mainMod     = "SUPER"
 local terminal    = "kitty"
@@ -27,7 +27,7 @@ local function exec(combo, cmd, desc, opts)
 end
 
 section = "Apps"
-exec("slash", "~/.local/bin/keybinds.sh menu", "Shortcut cheat sheet (this list)")
+exec("H", "~/.local/bin/keybinds.sh menu", "Shortcut cheat sheet (this list)")
 exec("T", terminal, "Terminal (kitty)")
 exec("E", fileManager, "File manager (thunar)")
 exec("A", menu, "App launcher")
