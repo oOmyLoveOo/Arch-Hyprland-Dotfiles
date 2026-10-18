@@ -39,9 +39,23 @@ case "$1" in
     menu)
         # Toggle: a second Super + H closes the open menu
         pkill -x rofi && exit 0
-        list_binds | awk -F'\t' '{ printf "%-11s  %-28s  %s\n", $1, $2, $3 }' \
+        # The theme's image panel would take half the width: list only.
+        # A rotated (vertical) monitor gets a narrower layout without the
+        # section column.
+        transform=$(hyprctl monitors -j | python3 -c '
+import json, sys
+print(next((m["transform"] for m in json.load(sys.stdin) if m["focused"]), 0))')
+        if [ "$transform" == "1" ] || [ "$transform" == "3" ]; then
+            vertical=1; width="95%"; font=10
+        else
+            vertical=0; width="1150px"; font=11
+        fi
+        list_binds | awk -F'\t' -v vertical="$vertical" '{
+                if (vertical) printf "%-26s  %s\n", $2, $3
+                else          printf "%-11s  %-28s  %s\n", $1, $2, $3
+            }' \
             | rofi -dmenu -i -p "Shortcuts" -no-custom -theme "$ROFI_THEME" \
-                   -theme-str 'window { width: 1100px; } listview { lines: 14; } element-text { font: "JetBrainsMono Nerd Font 11"; }' \
+                   -theme-str "window { width: $width; } mainbox { children: [ \"listbox\" ]; } listview { lines: 14; } element-text { font: \"JetBrainsMono Nerd Font $font\"; }" \
             > /dev/null
         ;;
     md)

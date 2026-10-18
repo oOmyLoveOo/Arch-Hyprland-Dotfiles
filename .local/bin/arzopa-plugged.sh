@@ -10,8 +10,13 @@ MON="${1:-DP-1}"
 HYPR_PID=$(pgrep -x Hyprland | head -1)
 [ -n "$HYPR_PID" ] && [ "$(ps -o etimes= -p "$HYPR_PID")" -lt 20 ] && exit 0
 
-# Let the output finish its modeset before drawing on it
-sleep 1
+# The panel needs a moment after hotplug: wait (max 10 s) until awww has
+# an output for it, then give the modeset a little extra time to settle
+for _ in $(seq 20); do
+    awww query 2>/dev/null | grep -q ": $MON:" && break
+    sleep 0.5
+done
+sleep 2
 
 # The horizontal layout may still be running if it was unplugged rotated
 if pgrep -af '^waybar' | grep -q 'config-horizontal'; then
