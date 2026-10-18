@@ -29,6 +29,8 @@ Two switchable color modes, orchestrated by `.local/bin/wallpaper_manager.sh` an
 The **targets are generated files and are gitignored** — never edit or commit them:
 `kitty/colors.conf`, `hypr/conf/colors.lua`, `hypr/hyprlock/colors.conf`, `swaync/colors.css`, `cava/config`, `btop/themes/wallust.theme`, `yazi/theme.toml`. To change colors, edit the corresponding file in `wallust/templates/` (dynamic mode) and/or `wallust/static/` (static mode) — usually both, so the modes stay in sync. After changing a target mapping in `wallust.toml`, also update `apply_static_colors()` in `wallpaper_manager.sh` and `.gitignore`.
 
+SwayOSD (`.config/swayosd/style.css`) has no template of its own: it `@import`s SwayNC's generated `colors.css`, and `wallpaper_manager.sh` restarts `swayosd-server` because it only reads its CSS at startup.
+
 App configs reference the generated files by sourcing/importing them (e.g. `hypr/conf/general.lua` loads `colors.lua` with `dofile`, kitty `include colors.conf`), so the rest of each config stays static and versioned.
 
 ## Structure notes

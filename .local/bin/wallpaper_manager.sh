@@ -221,3 +221,8 @@ fi
 # Notify Waybar / SwayNC to reload
 killall -SIGUSR2 waybar 2>/dev/null
 swaync-client -rs 2>/dev/null
+
+# SwayOSD only reads its stylesheet (and the colors it imports) at startup
+if pkill -x swayosd-server; then
+    setsid -f swayosd-server > /dev/null 2>&1
+fi

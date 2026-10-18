@@ -1,0 +1,55 @@
+/* Wallust colors shared with SwayNC (dynamic or static Tokyo Night):
+   @bg-base, @bg-alt, @text-main, @accent, @urgent ... */
+@import url("../swaync/colors.css");
+
+window#osd {
+  border-radius: 999px;
+  border: 1px solid alpha(@accent, 0.5);
+  background: alpha(@bg-base, 0.85);
+}
+
+window#osd #container {
+  margin: 14px 22px;
+}
+
+window#osd image,
+window#osd label {
+  color: @text-main;
+}
+
+window#osd progressbar:disabled,
+window#osd image:disabled {
+  opacity: 0.4;
+}
+
+window#osd progressbar,
+window#osd segmentedprogress {
+  min-height: 8px;
+  border-radius: 999px;
+  background: transparent;
+  border: none;
+}
+
+window#osd trough,
+window#osd segment {
+  min-height: inherit;
+  border-radius: inherit;
+  border: none;
+  background: alpha(@text-main, 0.15);
+}
+
+window#osd progress,
+window#osd segment.active {
+  min-height: inherit;
+  border-radius: inherit;
+  border: none;
+  background: @accent;
+}
+
+window#osd segment {
+  margin-left: 8px;
+}
+
+window#osd segment:first-child {
+  margin-left: 0;
+}

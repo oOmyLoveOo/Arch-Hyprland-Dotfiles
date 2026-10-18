@@ -74,18 +74,20 @@ bind(key("mouse_down"), hl.dsp.focus({ workspace = "e+1" }),                 "Ne
 bind(key("mouse_up"),   hl.dsp.focus({ workspace = "e-1" }),                 "Previous workspace (scroll)")
 
 section = "Media"
--- { key, command, description, repeats while held }
+-- swayosd-client changes the value and shows the on-screen indicator
+-- (swayosd-server, started in autostart). { key, command, description, repeats while held }
+local osd = "swayosd-client "
 local media = {
-    { "XF86AudioRaiseVolume",  "wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+", "Volume up",        true },
-    { "XF86AudioLowerVolume",  "wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-",      "Volume down",      true },
-    { "XF86AudioMute",         "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",     "Mute",             true },
-    { "XF86AudioMicMute",      "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle",   "Mute microphone",  true },
-    { "XF86MonBrightnessUp",   "brightnessctl -e4 -n2 set 5%+",                  "Brightness up",    true },
-    { "XF86MonBrightnessDown", "brightnessctl -e4 -n2 set 5%-",                  "Brightness down",  true },
-    { "XF86AudioNext",         "playerctl next",                                 "Next track",       false },
-    { "XF86AudioPause",        "playerctl play-pause",                           "Play/pause",       false },
-    { "XF86AudioPlay",         "playerctl play-pause",                           "Play/pause",       false },
-    { "XF86AudioPrev",         "playerctl previous",                             "Previous track",   false },
+    { "XF86AudioRaiseVolume",  osd .. "--output-volume raise",      "Volume up",       true },
+    { "XF86AudioLowerVolume",  osd .. "--output-volume lower",      "Volume down",     true },
+    { "XF86AudioMute",         osd .. "--output-volume mute-toggle", "Mute",           false },
+    { "XF86AudioMicMute",      osd .. "--input-volume mute-toggle",  "Mute microphone", false },
+    { "XF86MonBrightnessUp",   osd .. "--brightness raise",          "Brightness up",   true },
+    { "XF86MonBrightnessDown", osd .. "--brightness lower",          "Brightness down", true },
+    { "XF86AudioNext",         osd .. "--playerctl next",            "Next track",      false },
+    { "XF86AudioPause",        osd .. "--playerctl play-pause",      "Play/pause",      false },
+    { "XF86AudioPlay",         osd .. "--playerctl play-pause",      "Play/pause",      false },
+    { "XF86AudioPrev",         osd .. "--playerctl prev",            "Previous track",  false },
 }
 for _, m in ipairs(media) do
     bind(m[1], hl.dsp.exec_cmd(m[2]), m[3], { locked = true, repeating = m[4] })

@@ -14,6 +14,9 @@ local startup = {
     "waybar",
     "swaync",
 
+    -- On-screen indicator for volume / brightness / media keys
+    "swayosd-server",
+
     -- Clipboard history
     "wl-paste --type text --watch cliphist store",
     "wl-paste --type image --watch cliphist store",

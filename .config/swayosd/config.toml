@@ -1,0 +1,14 @@
+[server]
+# Show the OSD near the bottom of the screen
+top_margin = 0.88
+
+# Keep the same 100% ceiling the old wpctl binds had (-l 1)
+max_volume = 100
+min_brightness = 5
+
+show_percentage = true
+playerctl_format = "{artist} - {title}"
+keyboard_backlight = true
+
+# Milliseconds the OSD stays on screen
+duration = 1200
