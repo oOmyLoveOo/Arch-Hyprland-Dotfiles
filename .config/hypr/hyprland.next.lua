@@ -1,7 +1,7 @@
 -- -----------------------------------------------------
 -- MODULAR CONFIGURATION (Lua)
--- Work in progress: renamed to hyprland.lua once every module is migrated.
--- While hyprland.lua does not exist, Hyprland keeps loading hyprland.conf.
+-- Hyprland loads this file only when it is named hyprland.lua; if that file
+-- is missing it falls back to the legacy hyprland.conf.
 -- -----------------------------------------------------
 
 require("conf.monitors")
